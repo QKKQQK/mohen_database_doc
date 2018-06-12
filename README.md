@@ -1,8 +1,8 @@
 # 目录
 
 * [数据格式](#数据格式) 
-  * [tbl_report_raw 集合 数据记录行结构](#tbl_report_raw-集合-数据记录行结构)
-  * [tbl_report_raw 集合 数据字段格式](#tbl_report_raw-集合-数据字段格式)  
+  * [tbl_report_raw 集合 文档结构](#tbl_report_raw-集合-文档结构)
+  * [tbl_report_raw 集合 字段格式](#tbl_report_raw-集合-字段格式)  
     * [_id](#_id)  
     * [pid](#pid)
     * [name](#name)
@@ -28,7 +28,7 @@
   
 ## 数据格式
 
-### tbl_report_raw 集合 数据记录行结构
+### tbl_report_raw 集合 文档结构
     {
     	"_id" : ObjectId,
     	"pid" : ObjectId,
@@ -53,7 +53,7 @@
     	"utc_ts" : Double
     }
 
-### tbl_report_raw 集合 数据字段格式
+### tbl_report_raw 集合 字段格式
 
 #### `_id` 
 **数据的MongoDB _id**  
