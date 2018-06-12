@@ -229,9 +229,9 @@
 
 ## API
 
-### 上传数据 POST
+### 上传数 POST
 
-#### POST JSON 格式
+#### POST 格式(JSON)
 
     {  
         "_id" : String,  
