@@ -1,10 +1,12 @@
 # 目录
 
-* [数据格式](#数据格式) 
-  * [tbl_report_raw 集合 文档结构](#tbl_report_raw-集合-文档结构)
-  * [tbl_report_raw 集合 字段格式](#tbl_report_raw-集合-字段格式)  
+* [数据库数据格式](#数据库数据格式)  
+  * [tbl_report_raw 集合 文档结构](#tbl_report_raw-集合-文档结构)  
+  * [tbl_report_raw 集合 字段格式(BSON)](#tbl_report_raw-集合-字段格式(BSON))  
+* [API](#API)  
+  * [POST 上传数据 字段格式(JSON)](#POST-上传数据-字段格式(JSON))
   
-## 数据格式
+## 数据库数据格式
 
 ### tbl_report_raw 集合 文档结构
     {
