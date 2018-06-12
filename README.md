@@ -227,4 +227,38 @@
 索引：是  
 例子：`1528743234.2477944`
 
+## API
+
+### 上传数据 POST
+
+#### POST JSON 格式
+
+    {  
+        "_id" : String,  
+        "pid" : String,  
+        "name" : String,  
+        "flag" : Number,  
+        "exttype" : Number,  
+        "type" : Number,  
+        "tag" : [String],  
+        "klist" : [String],  
+        "rlist" : [String],  
+        "extlist" : {  
+            @key : [String]  
+        },  
+        "ugroup" : Number,  
+        "uid" : String,  
+        "fid" : String,  
+        "eid" : String,  
+        "openid" : String,  
+        "v1" : Number,  
+        "v2" : Number,  
+        "v3" : {  
+            @key : Number  
+        }  
+        "cfg" : String,  
+        "local_ts" : Number,  
+        "timezone" : Number  
+    }
+
 [返回目录](#目录)
