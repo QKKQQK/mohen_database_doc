@@ -2,10 +2,12 @@
 
 * [数据库数据格式](#数据库数据格式)  
   * [tbl_report_raw 集合 文档结构](#tbl_report_raw-集合-文档结构)  
-  * [tbl_report_raw 集合 字段格式(BSON)](#tbl_report_raw-集合-字段格式(BSON))  
-* [API](#API)  
-  * [POST 上传数据 字段格式(JSON)](#POST-上传数据-字段格式(JSON))
+  * [tbl_report_raw 集合 字段格式(BSON)](#tbl_report_raw-集合-字段bson格式)  
+* [API](#api)  
+  * [POST 上传数据 字段格式(JSON)](#post-上传数据-字段json格式)  
   
+
+ 
 ## 数据库数据格式
 
 ### tbl_report_raw 集合 文档结构
@@ -33,7 +35,7 @@
     	"utc_ts" : Double
     }
 
-### tbl_report_raw 集合 字段格式(BSON)
+### tbl_report_raw 集合 字段BSON格式  
 
 字段 | 意义 | BSON类型 | 建立索引 | 例子
 ---- | ---- | --- | ---- | ----
@@ -59,9 +61,9 @@ cfg | 字符串值 | String | 否  | "Y\|Y\|Y\|"
 utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.247"  
 utc_ts | 数据创建时间戳(UTC+0)(秒) | Double | 是 | 1528743234.2477944  
 
-## API
+## API  
 
-### POST 上传数据 字段格式(JSON)
+### POST 上传数据 字段JSON格式  
 
 字段 | 意义 | 必需 | 类型 |  要求 | 默认值 | 例子  
 ---- | ---- | ---- | ---- | ---- | ----- | ----- 
