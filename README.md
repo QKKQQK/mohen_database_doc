@@ -121,7 +121,7 @@
 
 
 #### `rlist`
-**用户关系树路径**  
+**关系树路径**  
 类型：`Array(ObjectId)`  
 索引：是  
 例子：  
@@ -233,32 +233,27 @@
 
 #### POST 格式(JSON)
 
-    {  
-        "_id" : String,  
-        "pid" : String,  
-        "name" : String,  
-        "flag" : Number,  
-        "exttype" : Number,  
-        "type" : Number,  
-        "tag" : [String],  
-        "klist" : [String],  
-        "rlist" : [String],  
-        "extlist" : {  
-            @key : [String]  
-        },  
-        "ugroup" : Number,  
-        "uid" : String,  
-        "fid" : String,  
-        "eid" : String,  
-        "openid" : String,  
-        "v1" : Number,  
-        "v2" : Number,  
-        "v3" : {  
-            @key : Number  
-        }  
-        "cfg" : String,  
-        "local_ts" : Number,  
-        "timezone" : Number  
-    }
+字段 | 意义 | 必需 | 类型 |  要求 | 默认值 | 例子  
+---- | ---- | ---- | ---- | ---- | ----- | ----- 
+_id  | 数据的MongoDB _id | 是 | String | 24位16进制数字字符串，不可重复 | 无 | "5a0ab7dad5cb310b9830ef27"  
+pid  | 数据的父级节点 _id | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
+name | 事件名称 | 是 | String | 不可为"" | 无 | "密码重置"   
+exttype | 事件所属小类别代码 | 是 | Number | 无 | 无 | 512  
+type | 事件所属大类别代码 | 是 | Number | 无 | 无 |50  
+tag | 事件相关标签(备用) | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
+klist | 知识点树路径 | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
+rlist | 关系树路径 | 是 | [String] | 24位16进制数字字符串 | 无 | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
+extlist | 拓展路径(备用) | 否 | Object | 24位16进制数字字符串 | {} | { "path_1" : ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"] }  
+ugroup | 用户所属大分类(如“届”)代码 | 否 | Number | 无 | 0 | 2015  
+uid | 用户 _id | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
+fid | 文件 _id(备用) | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
+eid | 设备 _id | 是 | String | 24位16进制数字字符串 | 无 | "5a0ab7dad5cb310b9830ef27"  
+openid | 数据提交第三方 _id | 是 | String | 24位16进制数字字符串 | 无 | "5a0ab7dad5cb310b9830ef27"  
+v1 | 数值：操作次数 | 是 | Number | 无 | 无 | 10.0  
+v2 | 数值：事件时长 | 是 | Number | 无 | 无 | 15.0  
+v3 | 拓展数值(备用) | 否 | Object | 无 | {} | {  "val_1" : 123.456 }  
+cfg | 字符串值 | 否 | String | 无 | "" | "Y\|Y\|Y\|"  
+local_ts | 当地时间戳(秒 ) | 是 | Number | 符合时间戳格式，使用当地时间 | 无 | 1528743234.2477944  
+timezone | 当地时区(UTC时区) | 是 | Number |  整数，如北京时间UTC+8则输入8 | 无 | 8  
 
 [返回目录](#目录)
