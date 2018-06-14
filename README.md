@@ -56,7 +56,7 @@ openid | 数据提交第三方 _id | ObjectId | 是  | ObjectId("5b3a62680000000
 v1 | 数值：操作次数 | Double | 是 | 10.0  
 v2 | 数值：事件时长 | Double | 是 | 10.0  
 v3 | 拓展数值(备用) | Object | 是  (例子：v3, v3.test_val1, v3.test_val2) | {test_val1 : 10.0, test_val2 : 9999.0}  
-cfg | 字符串值 | String | 否  | "Y\|Y\|Y\|"  
+cfg | 字符串值 | String | 是 | "Y\|Y\|Y\|"  
 utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.247"  
 utc_ts | 数据创建时间戳(UTC+0)(秒) | Double | 是 | 1528743234.2477944  
 
