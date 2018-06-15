@@ -8,8 +8,8 @@
 * [API](#api)  
   * [POST 上传数据 JSON格式](#post-上传数据-json格式)
   * [POST 上传数据 字段要求](#post-上传数据-字段要求)
-  * [POST 匹配 范围 聚合 类型搜索 JSON格式](#post-匹配-范围-聚合-类型搜索-json格式)
-  * [POST 匹配 范围 聚合 类型搜索 class Search](#post-匹配-范围-聚合-类型搜索-class-search)  
+  * [POST 匹配, 范围, 聚合搜索 JSON格式](#post-匹配-范围-聚合搜索-json格式)
+  * [POST 匹配, 范围, 聚合搜索 class Search](#post-匹配-范围-聚合搜索-class-search)  
  
 ## 数据库数据格式
 
@@ -172,7 +172,7 @@ v3 | 拓展数值(备用) | 否 | Object | 无 | {} | {  "val_1" : 123.456 }
 cfg | 字符串值 | 否 | String | 无 | "" | "Y\|Y\|Y\|"  
 utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 无 | "2018-06-12 10:53:54.247"  
 
-### POST 匹配 范围 聚合 类型搜索 JSON格式  
+### POST 匹配-范围-聚合搜索 JSON格式  
 
     {
         // 用于判定搜索类别的元数据
@@ -222,7 +222,7 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         ]
     }
 
-### POST 匹配 范围 聚合 类型搜索 class Search  
+### POST 匹配-范围-聚合搜索 class Search  
 
     class Search {
         String openid; // 第三方ID
