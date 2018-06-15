@@ -271,6 +271,7 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         // 仅用于聚合
         String[] group_type; // 可用选项：[sum, avg, min, max]
         String group_by; // 可选变量: [year, month, day, hour, minute, fid, eid, name, rlist(最底层节点), (extlist.var), ugroup, uid, exttype, type, klist(最底层节点), cfg]
+        String[] results; // 可选选项：[v1, v2, v3, v1_norm, v2_norm, (v3_norm.var)]
     }
 
 [返回目录](#目录)
