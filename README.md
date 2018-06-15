@@ -6,11 +6,13 @@
   * [tbl_report_min 集合 文档结构](#tbl_report_min-集合-文档结构)  
   * [tbl_report_min 集合 字段格式(BSON)](#tbl_report_min-集合-字段格式)
 * [API](#api)  
-  * [POST 搜索类 class Search](#post-搜索类-class-search)  
+  * [POST 搜索 JSON 格式](#post-搜索-json-格式)
+  * [POST 搜索 class Search](#post-搜索类-class-search)  
  
 ## 数据库数据格式
 
 ### tbl_report_raw 集合 文档结构
+**注：** 当新的原始数据通过POST发送给服务器时，如符合规则，原始数据将插入tbl_report_raw集合，并按情况与tbl_report_min集合里同一时间(精确到分钟)的同类数据合并或覆盖。
 
     {
         "_id" : ObjectId,
@@ -119,6 +121,56 @@ cfg | 字符串值 | String | 是 | "Y\|Y\|Y\|"
 utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.247"  
 
 ## API  
+
+### POST 搜索 JSON 格式  
+
+    {
+        // 用于判定搜索类别的元数据
+        "metadata" : {
+            "query_count" : 3,
+            "coefficient" : {
+                // 例子： 多个Query合并
+                // "set_a"，用来区分不同的组合和标注数据csv文件  
+                "set_a" : {
+                    "5xtw0001" : 0.7,
+                    "5xtw0002" : 0.3,
+                    "5xtw0003" : 0.7
+                },
+                // 例子： 只有1个Query
+                "set_b" : {
+                    "5xtw0003" : 1.0
+                },
+                // 一次POST可以有多个组合
+                "set_c" : {
+                    "5xtw0001" : 0.3,
+                    "5xtw0003" : 0.7
+                }
+            }
+        },
+        // 序列后的class Search数据
+        "data" : [
+            {
+                // “query_id”，用来区分query和标注数据csv文件
+                "query_id" : "5xtw0001",
+                // 序列化的class Search
+                "data" : {
+                    "序列化的Query 1"
+                }
+            },
+            {
+                "query_id" : "5xtw0002",
+                "data" : {
+                    "序列化的Query 2"
+                }
+            },
+            {
+                "query_id" : "5xtw0003",
+                "data" : {
+                    "序列化的Query 3"
+                }
+            }
+        ]
+    }
 
 ### POST 搜索类 class Search  
 
