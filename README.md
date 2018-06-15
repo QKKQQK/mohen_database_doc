@@ -6,7 +6,8 @@
   * [tbl_report_min 集合 文档结构](#tbl_report_min-集合-文档结构)  
   * [tbl_report_min 集合 字段格式(BSON)](#tbl_report_min-集合-字段格式)
 * [API](#api)  
-  * [POST 搜索 JSON 格式](#post-搜索-json-格式)
+  * [POST 上传 字段格式](#post-上传-字段格式)
+  * [POST 搜索 JSON格式](#post-搜索-json格式)
   * [POST 搜索 class Search](#post-搜索类-class-search)  
  
 ## 数据库数据格式
@@ -122,7 +123,31 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
 
 ## API  
 
-### POST 搜索 JSON 格式  
+### POST 上传 字段格式  
+
+字段 | 意义 | 必需 | 类型 |  要求 | 默认值 | 例子  
+---- | ---- | ---- | ---- | ---- | ----- | ----- 
+_id  | 数据的MongoDB _id | 是 | String | 24位16进制数字字符串，不可重复 | 无 | "5a0ab7dad5cb310b9830ef27"  
+pid  | 数据的父级节点 _id | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
+name | 事件名称 | 否 | String | 无 | "" | "密码重置"   
+exttype | 事件所属小类别代码 | 是 | Number | 无 | 无 | 512  
+type | 事件所属大类别代码 | 是 | Number | 无 | 无 |50  
+tag | 事件相关标签(备用) | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
+klist | 知识点树路径 | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
+rlist | 关系树路径 | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
+extlist | 拓展路径(备用) | 否 | Object | 24位16进制数字字符串 | {} | { "path_1" : ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"] }  
+ugroup | 用户所属大分类(如“届”)代码 | 否 | Number | 无 | 0 | 2015  
+uid | 用户 _id | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
+fid | 文件 _id(备用) | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
+eid | 设备 _id | 是 | String | 24位16进制数字字符串 | 无 | "5a0ab7dad5cb310b9830ef27"  
+openid | 数据提交第三方 _id | 是 | String | 使用非排序UUID | 无 | "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc"  
+v1 | 数值：操作次数 | 是 | Number | 无 | 无 | 10.0  
+v2 | 数值：事件时长 | 是 | Number | 无 | 无 | 15.0  
+v3 | 拓展数值(备用) | 否 | Object | 无 | {} | {  "val_1" : 123.456 }  
+cfg | 字符串值 | 否 | String | 无 | "" | "Y\|Y\|Y\|"  
+utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 无 | "2018-06-12 10:53:54.247"  
+
+### POST 搜索 JSON格式  
 
     {
         // 用于判定搜索类别的元数据
