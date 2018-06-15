@@ -4,8 +4,7 @@
   * [tbl_report_raw 集合 文档结构](#tbl_report_raw-集合-文档结构)  
   * [tbl_report_raw 集合 字段格式(BSON)](#tbl_report_raw-集合-字段格式)  
 * [API](#api)  
-  * [POST 上传数据 JSON结构](#post-上传数据-json结构)  
-  * [POST 上传数据 字段格式(JSON)](#post-上传数据-字段格式)  
+  * [POST 搜索类 class Search](#post-搜索类-class-search)  
  
 ## 数据库数据格式
 
@@ -62,36 +61,7 @@ utc_ts | 数据创建时间戳(UTC+0)(秒) | Double | 是 | 1528743234.2477944
 
 ## API  
 
-### POST 上传数据 JSON结构  
-
-    {  
-        "_id" : String,  
-        "pid" : String,  
-        "name" : String,  
-        "exttype" : Number,  
-        "type" : Number,  
-        "tag" : [String],  
-        "klist" : [String],  
-        "rlist" : [String],  
-        "extlist" : {  
-            @key : [String]  
-        },  
-        "ugroup" : Number,  
-        "uid" : String,  
-        "fid" : String,  
-        "eid" : String,  
-        "openid" : String,  
-        "v1" : Number,  
-        "v2" : Number,  
-        "v3" : {  
-            @key : Number  
-        }  
-        "cfg" : String,  
-        "local_ts" : Number,  
-        "timezone" : Number  
-    }
-
-### POST 上传数据 字段格式  
+### POST 搜索类 class Search  
 
     class Search {
         String openid; // 第三方ID
