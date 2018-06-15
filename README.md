@@ -240,11 +240,7 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         Int[] type_match; // [匹配搜索] 零到多个事件大分类代码
         String[] tag_match; // [匹配搜索] 零到多个标签
         String[] klist_match; // [匹配搜索] 零到多个知识点树节点ID
-        Int year; // [匹配搜索] 年
-        Int month; // [匹配搜索] 月
-        Int day; // [匹配搜索] 日    
-        Int hour; // [匹配搜索] 小时
-        Int minute; // [匹配搜索] 分钟
+        String[] date; // [匹配搜索] 日期，精确到分钟
         Float v1; // [匹配搜索] v1数值
         Float v2; // [匹配搜索] v2数值
         Dict v3; // [匹配搜索] v3数值，零到多个 变量名称：数值
@@ -252,7 +248,8 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
 
         // 范围搜索，使用匹配搜索变量作为下限(包含)
         // 匹配搜索时不需要POST以下对应变量
-
+        
+        // 以下变量用于范围搜索, 变量foo与变量foo_upper同一index上的两个元素表示一组范围(包含)
         // 例子：ugroup_match[0] 与 ugroup_match_upper[0] 组成一个范围
         // ugroup_match 与 ugroup_match_upper 每一位相对应
         // 例子：搜索符合 {ugroup <= 2013 OR 2016 <= ugroup <= 2017 OR 2019 <= ugroup} 的数据时
@@ -261,11 +258,7 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         Int[] ugroup_match_upper; // [范围搜索] ugroup 搜索上限(包含)
         Int[] exttype_match_upper; // [范围搜索] exttype 搜索上限(包含)
         Int[] type_match_upper; // [范围搜索] type 搜索上限(包含)
-        Int year_upper; // [范围搜索] 年 搜索上限(包含)
-        Int month_upper; // [范围搜索] 月 搜索上限(包含)
-        Int day_upper; // [范围搜索] 日 搜索上限(包含)
-        Int hour_upper; // [范围搜索] 小时 搜索上限(包含)
-        Int minute_upper; // [范围搜索] 分钟 搜索上限(包含)
+        String[] date_upper; // [匹配搜索] 日期搜索上限(包含)
         Float v1_upper; // [范围搜索] v1数值 搜索上限(包含)
         Float v2_upper; // [范围搜索] v2数值 搜索上限(包含)
         Dict v3_upper; // [范围搜索] v3数值，零到多个 变量名称：搜索上限(包含)
