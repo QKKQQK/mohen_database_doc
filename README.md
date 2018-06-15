@@ -273,11 +273,11 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         // 排序，默认以Date从小到大排序， 一般不推荐使用
 
         Int asc; // 1 从小到大， -1 从大到小
-        String order_by; // 可用字段： [fid, eid, uid, name, exttype, type, v1, v2, (v3.var), cfg]
+        String order_by; // 可用字段： [fid, eid, uid, name, (exttype.var), type, v1, v2, (v3.var), v1_norm, v2_norm, (v3_norm.var), cfg]
 
         // 聚合
         String[] group_type; // 可用选项：[sum, avg, min, max]
-        String group_by; // 可选变量: [year, month, day, hour, minute, fid, eid, name, rlist, (extlist.var), ugroup, uid, exttype, type, klist, cfg]
+        String group_by; // 可选变量: [year, month, day, hour, minute, fid, eid, name, rlist(最底层节点), (extlist.var), ugroup, uid, exttype, type, klist(最底层节点), cfg]
     }
 
 [返回目录](#目录)
