@@ -6,10 +6,10 @@
   * [tbl_report_min 集合 文档结构](#tbl_report_min-集合-文档结构)  
   * [tbl_report_min 集合 字段要求(BSON)](#tbl_report_min-集合-字段要求)
 * [API](#api)  
-  * [POST 上传 JSON格式](#post-上传-json格式)
-  * [POST 上传 字段要求](#post-上传-字段要求)
-  * [POST 搜索 JSON格式](#post-搜索-json格式)
-  * [POST 搜索 class Search](#post-搜索类-class-search)  
+  * [POST 上传数据 JSON格式](#post-上传数据-json格式)
+  * [POST 上传数据 字段要求](#post-上传数据-字段要求)
+  * [POST 匹配 范围 聚合 类型搜索 JSON格式](#post-匹配-范围-聚合-类型搜索-json格式)
+  * [POST 匹配 范围 聚合 类型搜索 class Search](#post-匹配-范围-聚合-类型搜索-class-search)  
  
 ## 数据库数据格式
 
@@ -124,7 +124,7 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
 
 ## API  
 
-### POST 上传 JSON格式
+### POST 上传数据 JSON格式
 
     {
         "_id" : "5a0ab7dad5cb310b9830ef27",  
@@ -148,7 +148,7 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
         "utc_date" : "2018-06-12 10:53:54.247"
     }
 
-### POST 上传 字段要求  
+### POST 上传数据 字段要求  
 
 字段 | 意义 | 必需 | 类型 |  要求 | 默认值 | 例子  
 ---- | ---- | ---- | ---- | ---- | ----- | ----- 
@@ -172,7 +172,7 @@ v3 | 拓展数值(备用) | 否 | Object | 无 | {} | {  "val_1" : 123.456 }
 cfg | 字符串值 | 否 | String | 无 | "" | "Y\|Y\|Y\|"  
 utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 无 | "2018-06-12 10:53:54.247"  
 
-### POST 搜索 JSON格式  
+### POST 匹配 范围 聚合 类型搜索 JSON格式  
 
     {
         // 用于判定搜索类别的元数据
@@ -222,7 +222,7 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         ]
     }
 
-### POST 搜索类 class Search  
+### POST 匹配 范围 聚合 类型搜索 class Search  
 
     class Search {
         String openid; // 第三方ID
