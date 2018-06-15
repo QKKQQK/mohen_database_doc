@@ -229,8 +229,8 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
 
         // 匹配搜索
 
-        String[] rlist_match; // [匹配搜索] 零到多个关系树中的关键词
-        Dict extlist_match; // [匹配搜索] 零到多个 拓展树名称：[树节点名称]
+        String[] rlist_match; // [匹配搜索] 零到多个关系树节点ID
+        Dict extlist_match; // [匹配搜索] 零到多个 拓展树名称：[拓展树节点ID]
         Int[] ugroup_match; // [匹配搜索] 零到多个用户分组数值
         String[] uid_match; // [匹配搜索] 零到多个用户ID
         String[] fid_match; // [匹配搜索] 零到多个文件ID
@@ -239,7 +239,7 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         Int[] exttype_match; // [匹配搜索] 零到多个事件小分类代码
         Int[] type_match; // [匹配搜索] 零到多个事件大分类代码
         String[] tag_match; // [匹配搜索] 零到多个标签
-        String[] klist_match; // [匹配搜索] 零到多个知识点树中的关键词
+        String[] klist_match; // [匹配搜索] 零到多个知识点树节点ID
         Int year; // [匹配搜索] 年
         Int month; // [匹配搜索] 月
         Int day; // [匹配搜索] 日    
