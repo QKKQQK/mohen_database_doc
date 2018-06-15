@@ -31,7 +31,7 @@
         "uid" : ObjectId,
         "fid" : ObjectId,
         "eid" : ObjectId,
-        "openid" : ObjectId,
+        "openid" : String,
         "v1" : Double,
         "v2" : Double,
         "v3" : Object
@@ -57,7 +57,7 @@ ugroup | 用户所属大分类(如“届”)代码 | Int32 | 是 | 2016
 uid | 用户 _id | ObjectId | 是 | ObjectId("5b3a62680000000000000000")  
 fid | 文件 _id(备用) | ObjectId | 是 | ObjectId("5b3a62680000000000000000")  
 eid | 设备 _id | ObjectId | 是 | ObjectId("5b3a62680000000000000000")  
-openid | 数据提交第三方 _id | ObjectId | 是  | ObjectId("5b3a62680000000000000000")  
+openid | 数据提交第三方 _id, uuid格式 | String | 是  | "04ca7d4a-706e-11e8-adc0-fa7ae01bbebc"  
 v1 | 数值：操作次数 | Double | 是 | 10.0  
 v2 | 数值：事件时长 | Double | 是 | 10.0  
 v3 | 拓展数值(备用) | Object | 是  (例子：v3, v3.test_val1, v3.test_val2) | {test_val1 : 10.0, test_val2 : 9999.0}  
@@ -83,7 +83,7 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
         "uid" : ObjectId,
         "fid" : ObjectId,
         "eid" : ObjectId,
-        "openid" : ObjectId,
+        "openid" : String,
         "v1" : Double,
         "v1_norm" : Double,
         "v2" : Double,
@@ -112,7 +112,7 @@ ugroup | 用户所属大分类(如“届”)代码 | Int32 | 是 | 2016
 uid | 用户 _id | ObjectId | 是 | ObjectId("5b3a62680000000000000000")  
 fid | 文件 _id(备用) | ObjectId | 是 | ObjectId("5b3a62680000000000000000")  
 eid | 设备 _id | ObjectId | 是 | ObjectId("5b3a62680000000000000000")  
-openid | 数据提交第三方 _id | ObjectId | 是  | ObjectId("5b3a62680000000000000000")  
+openid | 数据提交第三方 _id | String | 是  | "04ca7d4a-706e-11e8-adc0-fa7ae01bbebc"  
 v1 | 数值：操作次数 | Double | 是 | 10.0  
 v1_norm | 数值：归一化操作次数 | Double | 是 | 0.321  
 v2 | 数值：事件时长 | Double | 是 | 10.0  
@@ -165,7 +165,7 @@ ugroup | 用户所属大分类(如“届”)代码 | 否 | Number | 无 | 0 | 20
 uid | 用户 _id | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
 fid | 文件 _id(备用) | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
 eid | 设备 _id | 是 | String | 24位16进制数字字符串 | 无 | "5a0ab7dad5cb310b9830ef27"  
-openid | 数据提交第三方 _id | 是 | String | 使用非排序UUID | 无 | "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc"  
+openid | 数据提交第三方 _id | 是 | String | 使用UUID | 无 | "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc"  
 v1 | 数值：操作次数 | 是 | Number | 无 | 无 | 10.0  
 v2 | 数值：事件时长 | 是 | Number | 无 | 无 | 15.0  
 v3 | 拓展数值(备用) | 否 | Object | 无 | {} | {  "val_1" : 123.456 }  
