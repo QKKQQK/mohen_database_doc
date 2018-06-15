@@ -61,8 +61,8 @@ cfg | 字符串值 | String | 是 | "Y\|Y\|Y\|"
 utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.247"  
 
 
-### tbl_report_min 集合 文档结构
-注：tbl_report_min 集合会将同一分钟(y/m/d/h/m相同)的，相同name, exttype, type, uyear, uid, fid, eid, openid值的数据合并。合并后数据的pid, tag, klist, rlist, extlist, cfg值将会被最后一条原始数据覆盖，v1, v2, v3值相加累计，v1_norm, v2_norm, v3_norm值根据新的v1, v2, v3值重新计算
+### tbl_report_min 集合 文档结构  
+**注：** tbl_report_min 集合会将同一分钟(y/m/d/h/m相同)的，相同name, exttype, type, uyear, uid, fid, eid, openid值的数据合并。合并后数据的pid, tag, klist, rlist, extlist, cfg值将会被最后一条原始数据覆盖，v1, v2, v3值相加累计，v1_norm, v2_norm, v3_norm值根据新的v1, v2, v3值重新计算
 
     {
         "_id" : ObjectId,
