@@ -251,7 +251,7 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         String order_by; // 可用字段： [fid, eid, uid, name, exttype, type, v1, v2, (v3.var), cfg]
 
         // 聚合
-        String group_type; // 可用选项：[sum, avg, min, max]
+        String[] group_type; // 可用选项：[sum, avg, min, max]
         String group_by; // 可选变量: [year, month, day, hour, minute, fid, eid, name, rlist, (extlist.var), ugroup, uid, exttype, type, klist, cfg]
     }
 
