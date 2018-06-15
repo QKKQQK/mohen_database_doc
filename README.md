@@ -2,11 +2,12 @@
 
 * [数据库数据格式](#数据库数据格式)  
   * [tbl_report_raw 集合 文档结构](#tbl_report_raw-集合-文档结构)  
-  * [tbl_report_raw 集合 字段格式(BSON)](#tbl_report_raw-集合-字段格式)  
+  * [tbl_report_raw 集合 字段要求(BSON)](#tbl_report_raw-集合-字段要求)  
   * [tbl_report_min 集合 文档结构](#tbl_report_min-集合-文档结构)  
-  * [tbl_report_min 集合 字段格式(BSON)](#tbl_report_min-集合-字段格式)
+  * [tbl_report_min 集合 字段要求(BSON)](#tbl_report_min-集合-字段要求)
 * [API](#api)  
-  * [POST 上传 字段格式](#post-上传-字段格式)
+  * [POST 上传 JSON格式](#post-上传-json格式)
+  * [POST 上传 字段要求](#post-上传-字段要求)
   * [POST 搜索 JSON格式](#post-搜索-json格式)
   * [POST 搜索 class Search](#post-搜索类-class-search)  
  
@@ -38,7 +39,7 @@
         "utc_date" : Date
     }
 
-### tbl_report_raw 集合 字段格式  
+### tbl_report_raw 集合 字段要求  
 
 字段 | 意义 | BSON类型 | 建立索引 | 例子
 ---- | ---- | --- | ---- | ----
@@ -93,7 +94,7 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
         "utc_date" : Date
     }
 
-### tbl_report_min 集合 字段格式  
+### tbl_report_min 集合 字段要求  
 
 字段 | 意义 | BSON类型 | 建立索引 | 例子
 ---- | ---- | --- | ---- | ----
@@ -123,7 +124,31 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
 
 ## API  
 
-### POST 上传 字段格式  
+### POST 上传 JSON格式
+
+    {
+        "_id" : "5a0ab7dad5cb310b9830ef27",  
+        "pid"  : "5a0ab7dad5cb310b9830ef27",  
+        "name" : "密码重置",   
+        "exttype" : 512,  
+        "type" : 50,  
+        "tag": ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"],  
+        "klist" : ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"],  
+        "rlist" : ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"], 
+        "extlist" : { "path_1" : ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"] },  
+        "ugroup" : 2015,  
+        "uid" : "5a0ab7dad5cb310b9830ef27",  
+        "fid" : "5a0ab7dad5cb310b9830ef27",  
+        "eid" : "5a0ab7dad5cb310b9830ef27",  
+        "openid" : "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc",  
+        "v1" : 10.0,  
+        "v2" : 15.0,  
+        "v3" : {  "val_1" : 123.456 },  
+        "cfg" : "Y|Y|Y|",  
+        "utc_date" : "2018-06-12 10:53:54.247"
+    }
+
+### POST 上传 字段要求  
 
 字段 | 意义 | 必需 | 类型 |  要求 | 默认值 | 例子  
 ---- | ---- | ---- | ---- | ---- | ----- | ----- 
