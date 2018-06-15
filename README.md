@@ -13,26 +13,26 @@
 ### tbl_report_raw 集合 文档结构
 
     {
-    	"_id" : ObjectId,
-    	"pid" : ObjectId,
-    	"name" : String,
-    	"flag" : Int32,
-    	"exttype" : Int32,
-    	"type" : Int32,
-    	"tag" : [ObjectId],
-    	"klist" : [ObjectId],
-    	"rlist" : [ObjectId],
-    	"extlist" : Object,
-    	"uyear" : Int32,
-    	"uid" : ObjectId,
-    	"fid" : ObjectId,
-    	"eid" : ObjectId,
-    	"openid" : ObjectId,
-    	"v1" : Double,
-    	"v2" : Double,
-    	"v3" : Object
-    	"cfg" : String,
-    	"utc_date" : Date
+        "_id" : ObjectId,
+        "pid" : ObjectId,
+        "name" : String,
+        "flag" : Int32,
+        "exttype" : Int32,
+        "type" : Int32,
+        "tag" : [ObjectId],
+        "klist" : [ObjectId],
+        "rlist" : [ObjectId],
+        "extlist" : Object,
+        "uyear" : Int32,
+        "uid" : ObjectId,
+        "fid" : ObjectId,
+        "eid" : ObjectId,
+        "openid" : ObjectId,
+        "v1" : Double,
+        "v2" : Double,
+        "v3" : Object
+        "cfg" : String,
+        "utc_date" : Date
     }
 
 ### tbl_report_raw 集合 字段格式  
@@ -66,29 +66,29 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
     合并后数据的pid, tag, klist, rlist, extlist, cfg值将会被最后一条原始数据的值覆盖，v1, v2, v3值相加累计，v1_norm, v2_norm, v3_norm值根据新值重新计算
 
     {
-    	"_id" : ObjectId,
-    	"pid" : ObjectId,
-    	"name" : String,
-    	"flag" : Int32,
-    	"exttype" : Int32,
-    	"type" : Int32,
-    	"tag" : [ObjectId],
-    	"klist" : [ObjectId],
-    	"rlist" : [ObjectId],
-    	"extlist" : Object,
-    	"uyear" : Int32,
-    	"uid" : ObjectId,
-    	"fid" : ObjectId,
-    	"eid" : ObjectId,
-    	"openid" : ObjectId,
-    	"v1" : Double,
-     "v1_norm" : Double,
-    	"v2" : Double,
-     "v2_norm" : Double,
-    	"v3" : Object,
-     "v3_norm" : Object,
-    	"cfg" : String,
-    	"utc_date" : Date
+        "_id" : ObjectId,
+        "pid" : ObjectId,
+        "name" : String,
+        "flag" : Int32,
+        "exttype" : Int32,
+        "type" : Int32,
+        "tag" : [ObjectId],
+        "klist" : [ObjectId],
+        "rlist" : [ObjectId],
+        "extlist" : Object,
+        "uyear" : Int32,
+        "uid" : ObjectId,
+        "fid" : ObjectId,
+        "eid" : ObjectId,
+        "openid" : ObjectId,
+        "v1" : Double,
+        "v1_norm" : Double,
+        "v2" : Double,
+        "v2_norm" : Double,
+        "v3" : Object,
+        "v3_norm" : Object,
+        "cfg" : String,
+        "utc_date" : Date
     }
 
 ### tbl_report_min 集合 字段格式  
@@ -115,7 +115,7 @@ v1_norm | 数值：归一化操作次数 | Double | 是 | 0.321
 v2 | 数值：事件时长 | Double | 是 | 10.0  
 v2_norm | 数值：归一化事件时长 | Double | 是 | 0.5234
 v3 | 拓展数值(备用) | Object | 是  (例子：v3, v3.test_val1, v3.test_val2) | {test_val1 : 10.0, test_val2 : 9999.0}  
-v3_norm | 归一化拓展数值(备用) | Object | 是 (例子v3_norm, v3_norm.test_val1, v3_norm.test_val2) | {test_val1 : 0.2311, test_val2 : 0.885} 
+v3_norm | 归一化拓展数值(备用) | Object | 是 (例子: v3_norm, v3_norm.test_val1, v3_norm.test_val2) | {test_val1 : 0.2311, test_val2 : 0.885} 
 cfg | 字符串值 | String | 是 | "Y\|Y\|Y\|"  
 utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.247"  
 
