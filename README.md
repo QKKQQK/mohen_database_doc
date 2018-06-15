@@ -60,8 +60,8 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
 
 
 ### tbl_report_min 集合 文档结构
-注：tbl_report_min 集合会将同一分钟(y/m/d/h/m相同)的，相同name, exttype, type, uyear, uid, fid, eid, openid的数据合并。  
-    数据的pid, tag, klist, rlist, extlist, v1, v2, v3, cfg值将会被覆盖，v1_norm, v2_norm, v3_norm将根据新值重新计算
+注：tbl_report_min 集合会将同一分钟(y/m/d/h/m相同)的，相同name, exttype, type, uyear, uid, fid, eid, openid值的数据合并。  
+    合并后数据的pid, tag, klist, rlist, extlist, cfg值将会被最后一条原始数据的值覆盖，v1, v2, v3值相加累计，v1_norm, v2_norm, v3_norm值根据新值重新计算
 
     {
     	"_id" : ObjectId,
@@ -89,7 +89,7 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
     	"utc_date" : Date
     }
 
-### tbl_report_raw 集合 字段格式  
+### tbl_report_min 集合 字段格式  
 
 字段 | 意义 | BSON类型 | 建立索引 | 例子
 ---- | ---- | --- | ---- | ----
@@ -115,7 +115,6 @@ v2_norm | 数值：归一化事件时长 | Double | 是 | 0.5234
 v3 | 拓展数值(备用) | Object | 是  (例子：v3, v3.test_val1, v3.test_val2) | {test_val1 : 10.0, test_val2 : 9999.0}  
 v3_norm | 归一化拓展数值(备用) | Object | 是 (例子v3_norm, v3_norm.test_val1, v3_norm.test_val2) | {test_val1 : 0.2311, test_val2 : 0.885}  cfg | 字符串值 | String | 是 | "Y\|Y\|Y\|"  
 utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.247"  
-
 
 ## API  
 
