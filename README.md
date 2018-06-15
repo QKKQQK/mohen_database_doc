@@ -93,26 +93,60 @@ utc_ts | 数据创建时间戳(UTC+0)(秒) | Double | 是 | 1528743234.2477944
 
 ### POST 上传数据 字段格式  
 
-字段 | 意义 | 必需 | 类型 |  要求 | 默认值 | 例子  
----- | ---- | ---- | ---- | ---- | ----- | ----- 
-_id  | 数据的MongoDB _id | 是 | String | 24位16进制数字字符串，不可重复 | 无 | "5a0ab7dad5cb310b9830ef27"  
-pid  | 数据的父级节点 _id | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
-name | 事件名称 | 否 | String | 无 | "" | "密码重置"   
-exttype | 事件所属小类别代码 | 是 | Number | 无 | 无 | 512  
-type | 事件所属大类别代码 | 是 | Number | 无 | 无 |50  
-tag | 事件相关标签(备用) | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
-klist | 知识点树路径 | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
-rlist | 关系树路径 | 否 | [String] | 24位16进制数字字符串 | [] | ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"]  
-extlist | 拓展路径(备用) | 否 | Object | 24位16进制数字字符串 | {} | { "path_1" : ["5a0ab7dad5cb310b9830ef26", "5a0ab7dad5cb310b9830ef27"] }  
-ugroup | 用户所属大分类(如“届”)代码 | 否 | Number | 无 | 0 | 2015  
-uid | 用户 _id | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
-fid | 文件 _id(备用) | 否 | String | 24位16进制数字字符串 | "000000000000000000000000" | "5a0ab7dad5cb310b9830ef27"  
-eid | 设备 _id | 是 | String | 24位16进制数字字符串 | 无 | "5a0ab7dad5cb310b9830ef27"  
-openid | 数据提交第三方 _id | 是 | String | 使用非排序UUID | 无 | "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc"  
-v1 | 数值：操作次数 | 是 | Number | 无 | 无 | 10.0  
-v2 | 数值：事件时长 | 是 | Number | 无 | 无 | 15.0  
-v3 | 拓展数值(备用) | 否 | Object | 无 | {} | {  "val_1" : 123.456 }  
-cfg | 字符串值 | 否 | String | 无 | "" | "Y\|Y\|Y\|"  
-local_ts | 标准时间戳UTC+0(秒) | 是 | Number | 符合时间戳格式，转换为UTC+0 | 无 | 1528743234.2477944   
+    class Search {
+        String openid; // 第三方ID
+
+        // 匹配搜索
+
+        String[] rlist_match; // [匹配搜索] 零到多个关系树中的关键词
+        Dict extlist_match; // [匹配搜索] 零到多个 拓展树名称：[树节点名称]
+        Int[] ugroup_match; // [匹配搜索] 零到多个用户分组数值
+        String[] uid_match; // [匹配搜索] 零到多个用户ID
+        String[] fid_match; // [匹配搜索] 零到多个文件ID
+        String[] eid_match; // [匹配搜索] 零到多个设备ID
+        String[] name_match; // [匹配搜索] 零到多个事件名称
+        Int[] exttype_match; // [匹配搜索] 零到多个事件小分类代码
+        Int[] type_match; // [匹配搜索] 零到多个事件大分类代码
+        String[] tag_match; // [匹配搜索] 零到多个标签
+        String[] klist_match; // [匹配搜索] 零到多个知识点树中的关键词
+        Int year; // [匹配搜索] 年
+        Int month; // [匹配搜索] 月
+        Int day; // [匹配搜索] 日    
+        Int hour; // [匹配搜索] 小时
+        Int minute; // [匹配搜索] 分钟
+        Float v1; // [匹配搜索] v1数值
+        Float v2; // [匹配搜索] v2数值
+        Dict v3; // [匹配搜索] v3数值，零到多个 变量名称：数值
+        String cfg; // [匹配搜索] 字符串数值
+
+        // 范围搜索，使用匹配搜索变量作为下限(包含)
+        // 匹配搜索时不需要POST以下对应变量
+
+        // 例子：ugroup_match[0] 与 ugroup_match_upper[0] 组成一个范围
+        // ugroup_match 与 ugroup_match_upper 每一位相对应
+        // 例子：搜索符合 {ugroup <= 2013 OR 2016 <= ugroup <= 2017 OR 2019 <= ugroup} 的数据时
+        // ugroup_match = [min, 2016, 2019] ugroup_match_upper = [2013, 2017, max]
+        // min, max 根据业务逻辑由前端决定
+        Int[] ugroup_match_upper; // [范围搜索] ugroup 搜索上限(包含)
+        Int[] exttype_match_upper; // [范围搜索] exttype 搜索上限(包含)
+        Int[] type_match_upper; // [范围搜索] type 搜索上限(包含)
+        Int year_upper; // [范围搜索] 年 搜索上限(包含)
+        Int month_upper; // [范围搜索] 月 搜索上限(包含)
+        Int day_upper; // [范围搜索] 日 搜索上限(包含)
+        Int hour_upper; // [范围搜索] 小时 搜索上限(包含)
+        Int minute_upper; // [范围搜索] 分钟 搜索上限(包含)
+        Float v1_upper; // [范围搜索] v1数值 搜索上限(包含)
+        Float v2_upper; // [范围搜索] v2数值 搜索上限(包含)
+        Dict v3_upper; // [范围搜索] v3数值，零到多个 变量名称：搜索上限(包含)
+
+        // 排序，默认以Date从小到大排序， 一般不推荐使用
+
+        Int asc; // 1 从小到大， -1 从大到小
+        String order_by; // 可用字段： [fid, eid, uid, name, exttype, type, v1, v2, (v3.var), cfg]
+
+        // 聚合
+        String group_type; // 可用选项：[sum, avg, min, max]
+        String group_by; // 可选变量: [year, month, day, hour, minute, fid, eid, name, rlist, (extlist.var), ugroup, uid, exttype, type, klist, cfg]
+    }
 
 [返回目录](#目录)
