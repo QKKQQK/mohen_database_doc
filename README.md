@@ -3,6 +3,8 @@
 * [数据库数据格式](#数据库数据格式)  
   * [tbl_report_raw 集合 文档结构](#tbl_report_raw-集合-文档结构)  
   * [tbl_report_raw 集合 字段格式(BSON)](#tbl_report_raw-集合-字段格式)  
+  * [tbl_report_min 集合 文档结构](#tbl_report_min-集合-文档结构)  
+  * [tbl_report_min 集合 字段格式(BSON)](#tbl_report_min-集合-字段格式)
 * [API](#api)  
   * [POST 搜索类 class Search](#post-搜索类-class-search)  
  
@@ -113,7 +115,8 @@ v1_norm | 数值：归一化操作次数 | Double | 是 | 0.321
 v2 | 数值：事件时长 | Double | 是 | 10.0  
 v2_norm | 数值：归一化事件时长 | Double | 是 | 0.5234
 v3 | 拓展数值(备用) | Object | 是  (例子：v3, v3.test_val1, v3.test_val2) | {test_val1 : 10.0, test_val2 : 9999.0}  
-v3_norm | 归一化拓展数值(备用) | Object | 是 (例子v3_norm, v3_norm.test_val1, v3_norm.test_val2) | {test_val1 : 0.2311, test_val2 : 0.885}  cfg | 字符串值 | String | 是 | "Y\|Y\|Y\|"  
+v3_norm | 归一化拓展数值(备用) | Object | 是 (例子v3_norm, v3_norm.test_val1, v3_norm.test_val2) | {test_val1 : 0.2311, test_val2 : 0.885} 
+cfg | 字符串值 | String | 是 | "Y\|Y\|Y\|"  
 utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.247"  
 
 ## API  
