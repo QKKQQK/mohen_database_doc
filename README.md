@@ -10,6 +10,7 @@
   * [POST 上传数据 字段要求](#post-上传数据-字段要求)
   * [POST 匹配, 范围, 聚合搜索 JSON格式](#post-匹配-范围-聚合搜索-json格式)
   * [POST 匹配, 范围, 聚合搜索 class Search](#post-匹配-范围-聚合搜索-class-search)  
+  * [POST 树形结构输出搜索 JSON格式](#post-树形结构输出搜索-json格式)
  
 ## 数据库数据格式
 
@@ -272,6 +273,10 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
         String[] group_type; // 可用选项：[sum, avg, min, max]
         String group_by; // 可选变量: [year, month, day, hour, minute, fid, eid, name, rlist(最底层节点), (extlist.var), ugroup, uid, exttype, type, klist(最底层节点), cfg]
         String[] results; // 可选选项：[v1, v2, v3, v1_norm, v2_norm, (v3_norm.var)]
-    }
+    }  
+    
+### POST 树形结构输出搜索 JSON格式
+ 
+// TODO
 
 [返回目录](#目录)
