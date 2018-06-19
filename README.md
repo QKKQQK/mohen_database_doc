@@ -287,10 +287,10 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
             "node" : "几何",
             // 是否需要叶子节点下原始数据
             "leaf_data" : true,
-            // 叶子节点下数据排序根据
-            "leaf_sort_by" : "date",
+            // 叶子节点下数据排序根据, 可用字段：[fid, eid, uid, name, (exttype.var), type, v1, v2, (v3.var), v1_norm, v2_norm, (v3_norm.var), cfg]
+            "leaf_order_by": "date",
             // 叶子节点下数据排序升序(1)降序(-1)
-            "leaf_sort_asc" : 1
+            "leaf_asc" : 1
         },
         // 序列后的class Search数据
         "data" : [
