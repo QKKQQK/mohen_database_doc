@@ -277,7 +277,26 @@ utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 
     }  
     
 ### POST 树形结构输出搜索 JSON格式
- 
-// TODO
+
+    {
+        // 用于判定搜索类别的元数据
+        "metadata" : {
+            // 查询的树的名称
+            "tree" : "klist",
+            // 查询的节点的名称
+            "node" : "几何",
+            // 是否需要叶子节点下原始数据
+            "leaf_data" : true
+        },
+        // 序列后的class Search数据
+        "data" : [
+            {
+                // 序列化的class Search
+                "data" : {
+                    "序列化的Query 1"
+                }
+            }
+        ]
+    }
 
 [返回目录](#目录)
