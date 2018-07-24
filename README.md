@@ -98,7 +98,7 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
 字段 | 意义 | 必需 | 类型 |  要求 | 默认值 | 例子  
 ---- | ---- | ---- | ---- | ---- | ----- | ----- 
 _id  | 数据的MongoDB _id | 是 | Object | 24位16进制数字字符串，不可重复 | 无 | {"$oid" : "5a0ab7dad5cb310b9830ef27"}  
-openid | 数据提交第三方 _id | 是 | String | 使用UUID | 无 | "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc"  
+openid | 数据提交第三方 _id | 是 | String | 使用UUID1 | 无 | "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc"  
 pid  | 数据的父级节点 _id | 否 | Object | 24位16进制数字字符串 | {"$oid" : "000000000000000000000000"} | {"$oid" : "5a0ab7dad5cb310b9830ef27"}  
 name | 事件名称 | 否 | String | 无 | "" | "密码重置"   
 exttype | 事件所属小类别代码 | 是 | Number | 无 | 无 | 512  
