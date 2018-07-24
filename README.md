@@ -66,25 +66,31 @@ utc_date | 数据创建日期时间(UTC+0) | Date | 是 | "2018-06-12 10:53:54.2
 路径: /data
 
     {
-        "_id" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
-        "openid" : "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc",  
-        "pid"  : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
-        "name" : "密码重置",   
-        "exttype" : 512,  
-        "type" : 50,  
-        "tag": [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}],  
-        "klist" : [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}],  
-        "rlist" : [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}], 
-        "extlist" : { "path_1" : [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}] },  
-        "ugroup" : 2015,  
-        "uid" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
-        "fid" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
-        "eid" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
-        "v1" : 10.0,  
-        "v2" : 15.0,  
-        "v3" : {  "val_1" : 123.456 },  
-        "cfg" : "Y|Y|Y|",  
-        "utc_date" : {"$date" : 1530010000000}
+        "data" : [{
+            "_id" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
+            "openid" : "f857e9f6-6e26-11e8-adc0-fa7ae01bbebc",  
+            "pid"  : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
+            "name" : "密码重置",   
+            "exttype" : 512,  
+            "type" : 50,  
+            "tag": [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}],  
+            "klist" : [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}],  
+            "rlist" : [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}], 
+            "extlist" : { "path_1" : [{"$oid" : "5a0ab7dad5cb310b9830ef26"}, {"$oid" : "5a0ab7dad5cb310b9830ef27"}] },  
+            "ugroup" : 2015,  
+            "uid" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
+            "fid" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
+            "eid" : {"$oid" : "5a0ab7dad5cb310b9830ef27"},  
+            "v1" : 10.0,  
+            "v2" : 15.0,  
+            "v3" : {  "val_1" : 123.456 },  
+            "cfg" : "Y|Y|Y|",  
+            "utc_date" : {"$date" : 1530010000000}
+        }, {
+            ...
+        }, {
+            ...
+        }]
     }
 
 ### POST 上传数据 字段要求  
@@ -109,6 +115,6 @@ v1 | 数值：操作次数 | 是 | Number | 无 | 无 | 10.0
 v2 | 数值：事件时长 | 是 | Number | 无 | 无 | 15.0  
 v3 | 拓展数值(备用) | 否 | Object | 无 | {} | {"val_1" : 123.456}  
 cfg | 字符串值 | 否 | String | 无 | "" | "Y\|Y\|Y\|"  
-utc_date | 数据创建日期时间(UTC+0) | 是 | String | UTC+0标准时间 | 无 | "2018-06-12 10:53:54.247"  
+utc_date | 数据时间戳 | 是 | Object | 时间戳(毫秒) | 无 | {"$date" : "1530010000000"}  
 
 [返回目录](#目录)
